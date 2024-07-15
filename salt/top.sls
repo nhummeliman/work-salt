@@ -1,4 +1,3 @@
-file_roots:
-  base:
-    - /srv/salt
-    - /srv/pillar
+base:
+  '*':
+    - middle-earth
