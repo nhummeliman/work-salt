@@ -1,4 +1,4 @@
-middle-earth:
+middle_earth:
   url: "middle-earth"
   certificate:
     public_key: salt://resources/certs/chi-support.crt

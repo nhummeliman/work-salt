@@ -1,3 +1,3 @@
 base:
   '*':
-    - middle-earth
+    - middle_earth

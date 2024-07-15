@@ -7,9 +7,9 @@ work_files:
       - C:/salt/installers/filename2.zip
         - source: salt://resources/filename2.zip
       - C:/salt/certs/work.crt
-        - source: {{ pillar['middle-earth']['certificate']['public-key'] }}
+        - source: {{ pillar['middle_earth']['certificate']['public-key'] }}
       - C:/salt/certs/work.key
-        - source: {{ pillar['middle-earth']['certificate']['private-key'] }}
+        - source: {{ pillar['middle_earth']['certificate']['private-key'] }}
 
 extract_filename1:
   archive.extracted:
