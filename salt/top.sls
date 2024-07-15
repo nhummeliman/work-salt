@@ -1,2 +1,3 @@
-base:
-  - /srv/salt
+file_roots:
+  base:
+    - /srv/salt
