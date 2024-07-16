@@ -4,7 +4,7 @@
 
 uninstall_work_server:
   cmd.run:
-    - name: '"c:/salt/installers/iManage Work Server {{ work_server_version }}/iManage WorkServer (x64).exe" /uninstall /quiet /log "C:/salt/logs"'
+    - name: '"c:/salt/installers/iManage Work Server {{ work_server_version }}/iManage WorkServerx64.exe" /uninstall /quiet /log "C:/salt/logs"'
 
 uninstall_work_web_server:
   cmd.run:
