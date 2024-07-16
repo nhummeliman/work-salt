@@ -2,20 +2,36 @@
 {% set work_web_server_version = pillar['middle_earth']['work_web_server_version'] %}
 {% set control_center_version = pillar['middle_earth']['control_center_version'] %}
 
-work_files:
+manage_work_server_zip:
   file.managed:
+    - name: C:/salt/installers/iManage Work Server {{ work_server_version }}.zip
+    - source: salt://resources/iManage Work Server {{ work_server_version }}.zip
     - makedirs: True
-    - sources:
-      - name: C:/salt/installers/iManage Work Server {{ work_server_version }}.zip
-        source: salt://resources/iManage Work Server {{ work_server_version }}.zip
-      - name: C:/salt/installers/iManage Work Web Server {{ work_web_server_version }}.zip
-        source: salt://resources/iManage Work Web Server {{ work_web_server_version }}.zip
-      - name: C:/salt/installers/iManage Control Center {{ control_center_version }}.zip
-        source: salt://resources/iManage Control Center {{ control_center_version }}.zip
-      - name: C:/salt/certs/work.crt
-        source: {{ pillar['middle_earth']['certificate']['public_key'] }}
-      - name: C:/salt/certs/work.key
-        source: {{ pillar['middle_earth']['certificate']['private_key'] }}
+
+manage_work_web_server_zip:
+  file.managed:
+    - name: C:/salt/installers/iManage Work Web Server {{ work_web_server_version }}.zip
+    - source: salt://resources/iManage Work Web Server {{ work_web_server_version }}.zip
+    - makedirs: True
+
+manage_control_center_zip:
+  file.managed:
+    - name: C:/salt/installers/iManage Control Center {{ control_center_version }}.zip
+    - source: salt://resources/iManage Control Center {{ control_center_version }}.zip
+    - makedirs: True
+
+manage_work_crt:
+  file.managed:
+    - name: C:/salt/certs/work.crt
+    - source: {{ pillar['middle_earth']['certificate']['public_key'] }}
+    - makedirs: True
+
+manage_work_key:
+  file.managed:
+    - name: C:/salt/certs/work.key
+    - source: {{ pillar['middle_earth']['certificate']['private_key'] }}
+    - makedirs: True
+
 
 extract_work_server:
   archive.extracted:
