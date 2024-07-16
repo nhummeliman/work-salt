@@ -5,19 +5,19 @@
 manage_work_server_zip:
   file.managed:
     - name: C:/salt/installers/iManage Work Server {{ work_server_version }}.zip
-    - source: salt://resources/iManage Work Server {{ work_server_version }}.zip
+    - source: salt://resources/installers/iManage Work Server {{ work_server_version }}.zip
     - makedirs: True
 
 manage_work_web_server_zip:
   file.managed:
     - name: C:/salt/installers/iManage Work Web Server {{ work_web_server_version }}.zip
-    - source: salt://resources/iManage Work Web Server {{ work_web_server_version }}.zip
+    - source: salt://resources/installers/iManage Work Web Server {{ work_web_server_version }}.zip
     - makedirs: True
 
 manage_control_center_zip:
   file.managed:
     - name: C:/salt/installers/iManage Control Center {{ control_center_version }}.zip
-    - source: salt://resources/iManage Control Center {{ control_center_version }}.zip
+    - source: salt://resources/installers/iManage Control Center {{ control_center_version }}.zip
     - makedirs: True
 
 manage_work_crt:
