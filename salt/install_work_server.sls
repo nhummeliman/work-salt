@@ -8,7 +8,7 @@ install_work_server:
 
 install_work_web_server:
   cmd.run:
-    -name: "c:/salt/installers/iManage Work Web Server {{ work_web_version }}/iManageWorkWebServer.exe" /install /quiet /log "C:/salt/logs" PIDKEY=02004-0134805
+    -name: "c:/salt/installers/iManage Work Web Server {{ work_web_server_version }}/iManageWorkWebServer.exe" /install /quiet /log "C:/salt/logs" PIDKEY=02004-0134805
 
 install_control_center:
   cmd.run:
