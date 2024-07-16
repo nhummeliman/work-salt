@@ -1,26 +1,40 @@
+{% set work_server_version = pillar['middle_earth']['work_server_version']%}}
+{% set work_web_server_version = pillar['middle_earth']['work_web_server_version']%}}
+{% set control_center_version = pillar['middle_earth']['control_center_version']%}}
+
 work_files:
   file.managed:
     - makedirs: True
     - names:
-      - C:/salt/installers/filename1.zip
-        - source: salt://resources/filename1.zip
-      - C:/salt/installers/filename2.zip
-        - source: salt://resources/filename2.zip
+      - C:/salt/installers/iManage Work Server {{work_server_version}}.zip
+        - source: salt://resources/iManage Work Server {{work_server_version}}.zip
+      -C:/salt/installers/iManage Work Web Server {{work_web_server_version}}.zip
+        - source: salt://resources/iManage Work Web Server {work_web_server_version}.zip
+      -C:/salt/installers/iManage Control Center {{control_center_version}}.zip
+        - source: salt://resources/iManage Control Center {{control_center_version}}.zip
       - C:/salt/certs/work.crt
-        - source: {{ pillar['middle_earth']['certificate']['public-key'] }}
+        - source: {{ pillar['middle_earth']['certificate']['public_key'] }}
       - C:/salt/certs/work.key
-        - source: {{ pillar['middle_earth']['certificate']['private-key'] }}
+        - source: {{ pillar['middle_earth']['certificate']['private_key'] }}
 
-extract_filename1:
+extract_work_server:
   archive.extracted:
-    - name: C:/desired/location/for/filename1
-    - source: C:/salt/installers/filename1.zip
+    - name: C:/salt/installers
+    - source: C:/salt/installers/iManage Work Server {{work_server_version}}.zip
     - archive_format: zip
     - enforce_toplevel: False
 
-extract_filename2:
+extract_work_web_server:
   archive.extracted:
-    - name: C:/desired/location/for/filename2
-    - source: C:/salt/installers/filename2.zip
+    - name: C:/salt/installers
+    - source: C:/salt/installers/iManage Work Web Server {{work_web_server_version}}.zip
     - archive_format: zip
     - enforce_toplevel: False
+
+extract_control_center:
+  archive.extracted:
+    - name: C:/salt/installers
+    - source: C:/salt/installers/iManage Control Center {{control_center_version}}.zip
+    - archive_format: zip
+    - enforce_toplevel: False
+

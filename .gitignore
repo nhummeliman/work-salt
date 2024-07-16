@@ -1,2 +1,3 @@
 salt/resources/installers
+salt/resources/certs
 push_to_git.bat
