@@ -1,6 +1,6 @@
-{{% set work_server_version = pillar['middle_earth']['work_server_version']%}}}
-{{% set work_web_server_version = pillar['middle_earth']['work_web_server_version']%}}}
-{{% set control_center_version = pillar['middle_earth']['control_center_version']%}}}
+{% set work_server_version = pillar['middle_earth']['work_server_version'] %}
+{% set work_web_server_version = pillar['middle_earth']['work_web_server_version'] %}
+{% set control_center_version = pillar['middle_earth']['control_center_version'] %}
 
 work_files:
   file.managed:
