@@ -5,7 +5,7 @@
 work_files:
   file.managed:
     - makedirs: True
-    - names:
+    - sources:
       - name: C:/salt/installers/iManage Work Server {{ work_server_version }}.zip
         source: salt://resources/iManage Work Server {{ work_server_version }}.zip
       - name: C:/salt/installers/iManage Work Web Server {{ work_web_server_version }}.zip
