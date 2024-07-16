@@ -8,4 +8,4 @@ middle_earth:
     private_key: salt://resources/certs/work.key
   domain_account:
     username: Chisupport\nhummel_adm
-    password: Mhdocs123
+    password: 6ZEgKAYJe2k63U7H
