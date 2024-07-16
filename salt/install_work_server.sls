@@ -4,7 +4,7 @@
 
 install_work_server:
   cmd.run:
-    - name: '"c:/salt/installers/iManage Work Server {{ work_server_version }}/iManage WorkServer (x64).exe" /install /quiet /log "C:/salt/logs" SERVICE_USERNAME={{ pillar['middle_earth']['domain_account']['username'] }} SERVICE_PASSWORD={{ pillar['middle_earth']['domain_account']['password'] }} SERVICE_LOGON_TYPE=ServiceAccount PIDKEY=02003-0132264 SDK_LICENSE_PIDKEY=02003-0132814 APACHE_SERVER_NAME={{ pillar['middle_earth']['url'] }}.chisupport.local SSLCERT=C:/salt/certs/work.crt SSLKEY=c:/salt/certs/work.key'
+    - name: '"c:/salt/installers/iManage Work Server {{ work_server_version }}/iManageWorkServerx64.exe" /install /quiet /log "C:/salt/logs" SERVICE_USERNAME={{ pillar['middle_earth']['domain_account']['username'] }} SERVICE_PASSWORD={{ pillar['middle_earth']['domain_account']['password'] }} SERVICE_LOGON_TYPE=ServiceAccount PIDKEY=02003-0132264 SDK_LICENSE_PIDKEY=02003-0132814 APACHE_SERVER_NAME={{ pillar['middle_earth']['url'] }}.chisupport.local SSLCERT=C:/salt/certs/work.crt SSLKEY=c:/salt/certs/work.key'
 
 install_work_web_server:
   cmd.run:
