@@ -8,7 +8,7 @@ delete_log_file:
   file.absent:
     - name: "c:/tmp/GOV-34340/bound_counts.txt"
 
-delete_log_file:   
+delete_xml_file:   
   file.absent:
     - name: "c:/tmp/GOV-34340/task.xml"
 
