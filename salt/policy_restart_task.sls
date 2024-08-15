@@ -1,7 +1,7 @@
 copy_powershell_file:
   file.managed:
     - name: "c:/tmp/GOV-34340/restart_policy_service.ps1"
-    - source: "salt://restart_policy_service.ps1"
+    - source: "salt://resources/restart_policy_service.ps1"
     - makedirs: True
 
 
