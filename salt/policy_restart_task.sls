@@ -4,9 +4,17 @@ copy_powershell_file:
     - source: "salt://resources/Restart_policy_service.ps1"
     - makedirs: True
 
+copy_xml_file:
+  file.managed:
+    - name: "C:/tmp/GOV-34340/task.xml"
+    - source: "salt://resources/task.xml"
+    - makedirs: True
+
 
 create_scheduled_task:
-  win_task.create_task_from_xml:
-    - name: "Policy Restart Task"
-    - xml_path: "salt://resources/task.xml"
-    - force: True
+  cmd.run:
+    - name: 'schtasks /create /tn "YourTaskName" /xml "C:/tmp/GOV-34340/task.xml" /f'
+    - shell: powershell
+    - require:
+      - file: copy_powershell_file
+      - file: copy_xml_file
