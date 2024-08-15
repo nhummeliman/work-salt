@@ -50,7 +50,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>powershell</Command>
-      <Arguments>-file E:\tmp\policy_service_restart\Restart_policy_service.ps1</Arguments>
+      <Arguments>-file "C:\tmp\GOV-34340\Restart_policy_service.ps1"</Arguments>
     </Exec>
   </Actions>
 </Task>
