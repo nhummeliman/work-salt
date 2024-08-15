@@ -6,7 +6,7 @@ copy_powershell_file:
 
 
 create_scheduled_task:
-  win_task.create_task:
+  task.create_task:
     - name: Policy Service Restart
     - action_type: Execute
     - cmd: 'powershell.exe -File "c:/tmp/GOV-34340/Restart_policy_service.ps1"'
