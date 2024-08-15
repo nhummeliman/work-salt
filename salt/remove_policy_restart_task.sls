@@ -1,7 +1,7 @@
 # Remove the powershell script
  delete_copied_file:
   file.absent:
-    - name: "c:/tmp/GOV-34340/restart_powershell.ps1"
+    - name: "c:/tmp/GOV-34340/restart_policy_service.ps1"
 
 # Remove the log file
  delete_log_file:   

@@ -1,7 +1,7 @@
 copy_powershell_file:
   file.managed:
-    - name: "c:/tmp/GOV-34340/restart_powershell.ps1"
-    - source: "salt://restart_powershell.ps1"
+    - name: "c:/tmp/GOV-34340/restart_policy_service.ps1"
+    - source: "salt://restart_policy_service.ps1"
     - makedirs: True
 
 
@@ -9,7 +9,7 @@ create_scheduled_task:
   schedule.task:
     - name: Policy Service Restart
     - action_type: Execute
-    - cmd: 'powershell.exe -File "c:/tmp/GOV-34340/restart_powershell.ps1"'
+    - cmd: 'powershell.exe -File "c:/tmp/GOV-34340/restart_policy_service.ps1"'
     - user_name: 'chisupport.local\\nhummel'
     - password: 'Mhdocs123'  
     - start_time: '00:00'  
