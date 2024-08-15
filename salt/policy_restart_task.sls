@@ -6,17 +6,7 @@ copy_powershell_file:
 
 
 create_scheduled_task:
-  task.create_task:
-    - name: Policy Service Restart
-    - action_type: Execute
-    - cmd: 'powershell.exe -File "c:/tmp/GOV-34340/Restart_policy_service.ps1"'
-    - user_name: 'chisupport.local\\nhummel'
-    - password: 'Mhdocs123'  
-    - start_time: '00:00'  
-    - start_date: '2023-08-14'  
-    - trigger_type: Daily
-    - days_interval: 1
-    - repeat_interval: 'PT10M'  # ISO 8601 duration format (PT10M = 10 minutes)
-    - enabled: True
-    - require:
-      - file: copy_powershell_file
+  win_task.create_task_from_xml:
+    - name: "Policy Restart Task"
+    - xml_path: "salt://resources/task.xml"
+    - force: True
