@@ -1,4 +1,3 @@
-
 copy_powershell_file:
   file.managed:
     - name: "c:/tmp/GOV-34340/Restart_policy_service.ps1"
@@ -14,7 +13,7 @@ copy_xml_file:
 
 create_scheduled_task:
   cmd.run:
-    - name: 'schtasks /create /tn "restart_policy_service" /xml "C:/tmp/GOV-34340/task.xml" /f
+    - name: 'schtasks /create /tn "restart_policy_service" /xml "C:/tmp/GOV-34340/task.xml" /f'
     - shell: powershell
     - runas: "chisupport/namezaga"
     - password: "Mhdocs123"
