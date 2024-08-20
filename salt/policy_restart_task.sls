@@ -1,8 +1,3 @@
-{% set regionID = salt['pillar.get']('regional:region.id') %}
-{% set vaultID = salt['pillar.get']('regional:region.vault.store') %}
-{% set custID = grains['id'].split(regionID)[0]|string %}
-{% set svcpw = salt['vault'].read_secret("" +vaultID + "/" +custID + "/irm/irmadsvc", 'password') %}
-{% set svcaccount = salt['pillar.get']('irm:' +custID + ':svc_account') %}
 
 copy_powershell_file:
   file.managed:
@@ -21,8 +16,8 @@ create_scheduled_task:
   cmd.run:
     - name: 'schtasks /create /tn "restart_policy_service" /xml "C:/tmp/GOV-34340/task.xml" /f
     - shell: powershell
-    - runas: "{{ svcaccount }}"
-    - password: "{{ svcpw }}"
+    - runas: "chisupport/namezaga"
+    - password: "Mhdocs123"
     - require:
       - file: copy_powershell_file
       - file: copy_xml_file
