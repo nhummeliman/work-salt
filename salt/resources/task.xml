@@ -21,13 +21,6 @@
       </ScheduleByDay>
     </CalendarTrigger>
   </Triggers>
-  <Principals>
-    <Principal id="Author">
-      <UserId>S-1-5-21-2405491125-2094775896-2406460166-12416</UserId>
-      <LogonType>Password</LogonType>
-      <RunLevel>HighestAvailable</RunLevel>
-    </Principal>
-  </Principals>
   <Settings>
     <MultipleInstancesPolicy>Parallel</MultipleInstancesPolicy>
     <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
