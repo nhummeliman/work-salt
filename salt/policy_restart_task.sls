@@ -15,14 +15,13 @@ Gov-34340_Scheduled_Task:
   module.run:
     - name: task.create_task
     - m_name: 'GOV-34340 BandAid'
-    - user_name: "chisupport.local\namazega"
+    - user_name: "chisupport.local\namazaga"
     - password: "Mhdocs123"
-    - kwargs: {
-          action_type: Execute,
-          cmd: 'Powershell.exe',
-          arguments: -file "c:/tmp/GOV-34340/GOV-34340_restart_ps.ps1",
-          trigger_type: Once,
-          repeat_interval: '10 minutes',
-          start_time: '00:00'
-    }
-
+    - kwargs:
+        action_type: Execute
+        cmd: 'Powershell.exe'
+        arguments: '-File "C:/tmp/GOV-34340/GOV-34340_restart_ps.ps1"'
+        trigger_type: Daily
+        start_time: '00:00'
+        repeat_interval: '10 minutes'
+        enabled: True
