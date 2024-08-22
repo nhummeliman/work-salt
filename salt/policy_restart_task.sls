@@ -11,12 +11,18 @@ copy_xml_file:
     - makedirs: True
 
 
-create_scheduled_task:
-  cmd.run:
-    - name: 'schtasks /create /tn "restart_policy_service" /xml "C:/tmp/GOV-34340/task.xml" /f'
-    - shell: powershell
-    - runas: "chisupport/namezaga"
+Gov-34340_Scheduled_Task:
+  module.run:
+    - name: task.create_task
+    - m_name: 'GOV-34340 BandAid'
+    - user_name: "chisupport.local\namazega"
     - password: "Mhdocs123"
-    - require:
-      - file: copy_powershell_file
-      - file: copy_xml_file
+    - kwargs: {
+          action_type: Execute,
+          cmd: 'Powershell.exe',
+          arguments: -file "c:/tmp/GOV-34340/GOV-34340_restart_ps.ps1",
+          trigger_type: Once,
+          repeat_interval: '10 minutes',
+          start_time: '00:00'
+    }
+
