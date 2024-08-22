@@ -10,18 +10,17 @@ copy_xml_file:
     - source: "salt://resources/task.xml"
     - makedirs: True
 
-
 Gov-34340_Scheduled_Task:
   module.run:
     - name: task.create_task
     - m_name: 'GOV-34340 BandAid'
-    - user_name: "chisupport.local\namazaga"
+    - user_name: "chisupport\namazaga"
     - password: "Mhdocs123"
-    - kwargs:
-        action_type: Execute
-        cmd: 'Powershell.exe'
-        arguments: '-File "C:/tmp/GOV-34340/GOV-34340_restart_ps.ps1"'
-        trigger_type: Daily
-        start_time: '00:00'
-        repeat_interval: '10 minutes'
-        enabled: True
+    - action_type: Execute
+    - cmd: 'Powershell.exe'
+    - arguments: '-File "C:/tmp/GOV-34340/GOV-34340_restart_ps.ps1"'
+    - trigger_type: Once
+    - repeat_interval: 'PT10M'
+    - start_time: '00:00'
+    - task_name: 'Gov-34340_Scheduled_Task'
+    - enabled: True
