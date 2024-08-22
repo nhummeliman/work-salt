@@ -11,16 +11,12 @@ copy_xml_file:
     - makedirs: True
 
 Gov-34340_Scheduled_Task:
-  module.run:
-    - name: task.create_task
-    - m_name: 'GOV-34340 BandAid'
-    - user_name: "chisupport\namazaga"
-    - password: "Mhdocs123"
-    - action_type: Execute
-    - cmd: 'Powershell.exe'
-    - arguments: '-File "C:/tmp/GOV-34340/GOV-34340_restart_ps.ps1"'
-    - trigger_type: Once
-    - repeat_interval: 'PT10M'
-    - start_time: '00:00'
-    - task_name: 'Gov-34340_Scheduled_Task'
+  schedule.present:
+    - function: cmd.run
+    - job_args:
+      - Powershell.exe -File "C:/tmp/GOV-34340/GOV-34340_restart_ps.ps1"
+    - minutes: 10
     - enabled: True
+    - maxrunning: 1
+    - jid_include: True
+    - persist: True
