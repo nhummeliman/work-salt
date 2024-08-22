@@ -17,9 +17,6 @@ delete_xml_file:
     - name: "c:/tmp/GOV-34340/task.xml"
 
 # State to delete the scheduled task
-create_scheduled_task:
-  cmd.run:
-    - name: 'schtasks /delete /tn "restart_policy_service" /f'
-    - shell: powershell
-    - runas: "{{ svcaccount }}"
-    - password: "{{ svcpw }}"
+Gov-34340_Scheduled_Task_Remove:
+  schedule.absent:
+    - name: 'Gov-34340_Scheduled_Task'
