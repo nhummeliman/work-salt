@@ -1,9 +1,3 @@
-{% set regionID = salt['pillar.get']('regional:region.id') %}
-{% set vaultID = salt['pillar.get']('regional:region.vault.store') %}
-{% set custID = grains['id'].split(regionID)[0]|string %}
-{% set svcpw = salt['vault'].read_secret("" +vaultID + "/" +custID + "/irm/irmadsvc", 'password') %}
-{% set svcaccount = salt['pillar.get']('irm:' +custID + ':svc_account') %}
-
 delete_ps_file:
   file.absent:
     - name: "c:/tmp/GOV-34340/Restart_policy_service.ps1"
